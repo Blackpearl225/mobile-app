@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/tachyons/4.7.0/tachyons.css">
+		<title>Dreamforce 2018 is the best</title>
+	</head>
+	<body>
+		<div class="vh-100 w-100 flex justify-center">
+			<div class="flex flex-column items-center justify-center">
+				<div class="pt5">
+                    <span class="white pv1 ph2 br-pill bg-light-blue">VIEW</span>
+                    <div id="bleh"></div>
+					<div id="env" class="white pv1 ph2 br-pill bg-light-blue"></div>
+				</div>
+			</div>
+		</div>
+
+		<script>
+			var env = "<%= names %>";
+            document.getElementById("bleh").innerHTML = env;
+            //console.log(JSON.parse(env));
+            var json = decodeHtml(env);
+            json = JSON.parse(json);
+            console.log(json);
+            document.getElementById("bleh").innerHTML = json.length;
+            var elt = document.getElementById("env");
+            json.forEach(row =>  {
+                document.getElementById("bleh").innerHTML = row;
+                var div = document.createElement('span');
+                div.innerHTML = "Name: "+row.name;
+                div.innerHTML += "<br/>Email: ";
+                div.innerHTML += (row.email !=null)?row.email:"<span style=\"color:red;\">REQUIRED</span>";
+                elt.appendChild(div);
+                elt.appendChild(document.createElement("br"));
+                elt.appendChild(document.createElement("br"));
+            })
+
+            function decodeHtml(html) {
+                var txt = document.createElement("textarea");
+                txt.innerHTML = html;
+                return txt.value;
+            }
+		</script>
+	</body>
+</html>
