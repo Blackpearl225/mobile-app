@@ -51,6 +51,23 @@ app.get('/times', (req, res) => res.send(showTimes()))
   }
 })
 
+.get('/product', async (req, res) => {
+  try {
+    const client = await pool.connect();
+    const result = await client.query('SELECT Name, Description, ProductCode FROM salesforce.product2');
+    const results = { 'results': (result) ? result.rows : null};
+    var test = result.rows;
+    console.log(test)
+    var stringToParse = JSON.stringify(test);
+    
+    res.render('viewProduct.html', { names: stringToParse} );
+    client.release();
+  } catch (err) {
+    console.error(err);
+    res.send("Error " + err);
+  }
+})
+
 app.get('/', function(request, response) {
   var env = process.env.APP_ENV;
   if (env == 'staging') {
