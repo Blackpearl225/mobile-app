@@ -40,6 +40,7 @@ app.get('/times', (req, res) => res.send(showTimes()))
     const result = await client.query('SELECT ContractNumber, Description, StartDate, ContractTerm FROM salesforce.contract');
     const results = { 'results': (result) ? result.rows : null};
     var test = result.rows;
+    console.log(test)
     var stringToParse = JSON.stringify(test);
     
     res.render('viewContract.html', { names: stringToParse} );
