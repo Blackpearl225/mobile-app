@@ -28,7 +28,6 @@ app.get('/times', (req, res) => res.send(showTimes()))
     var stringToParse = JSON.stringify(test);
     
     res.render('view.html', { names: stringToParse} );
-    console.log(test[0].name);
     client.release();
   } catch (err) {
     console.error(err);
