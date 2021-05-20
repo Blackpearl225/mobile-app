@@ -29,21 +29,21 @@
                 var tr = document.createElement("tr");
                 var tdNb = document.createElement("td");
                 tdNb.classList = "pv3 pr3 bb b--black-20";
-                tdNb.innerHTML = row.ContractNumber;
+                tdNb.innerHTML = row.contractnumber;
                 tr.appendChild(tdNb);
                 var tdDesc = document.createElement("td");
                 tdDesc.classList = "pv3 pr3 bb b--black-20";
-                tdDesc.innerHTML = row.Description;
+                tdDesc.innerHTML = row.description;
                 tr.appendChild(tdDesc);
                 table.appendChild(tr);
                 var tdStart = document.createElement("td");
                 tdStart.classList = "pv3 pr3 bb b--black-20";
-                tdStart.innerHTML = row.StartDate;
+                tdStart.innerHTML = row.startdate;
                 tr.appendChild(tdStart);
                 table.appendChild(tr);
                 var tdTerm = document.createElement("td");
                 tdTerm.classList = "pv3 pr3 bb b--black-20";
-                tdTerm.innerHTML = row.ContractTerm;
+                tdTerm.innerHTML = row.contractterm;
                 tr.appendChild(tdTerm);
                 table.appendChild(tr);
             })
