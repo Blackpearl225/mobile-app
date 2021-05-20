@@ -12,7 +12,7 @@
                       <th class="fw6 bb b--black-20 tl pb3 pr3 bg-white">Contract Number</th>
                       <th class="fw6 bb b--black-20 tl pb3 pr3 bg-white">Description</th>
                       <th class="fw6 bb b--black-20 tl pb3 pr3 bg-white">Start Date</th>
-                      <th class="fw6 bb b--black-20 tl pb3 pr3 bg-white">Contract Term in Months</th>
+                      <th class="fw6 bb b--black-20 tl pb3 pr3 bg-white">Contract Term</th>
                     </tr>
                   </thead>
                   <tbody id="display" class="lh-copy">
@@ -38,12 +38,12 @@
                 table.appendChild(tr);
                 var tdStart = document.createElement("td");
                 tdStart.classList = "pv3 pr3 bb b--black-20";
-                tdStart.innerHTML = row.startdate;
+                tdStart.innerHTML = parseDate(row.startdate);
                 tr.appendChild(tdStart);
                 table.appendChild(tr);
                 var tdTerm = document.createElement("td");
                 tdTerm.classList = "pv3 pr3 bb b--black-20";
-                tdTerm.innerHTML = row.contractterm;
+                tdTerm.innerHTML = row.contractterm + ' months';
                 tr.appendChild(tdTerm);
                 table.appendChild(tr);
             })
@@ -52,6 +52,11 @@
                 var txt = document.createElement("textarea");
                 txt.innerHTML = html;
                 return txt.value;
+            }
+
+            function parseDate(string) {
+                var date = new Date(string);
+                return date.getDate()+'/'+date.getMonth()+'/'+date.getFullYear();
             }
 		</script>
 	</body>
