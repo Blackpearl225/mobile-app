@@ -20,13 +20,9 @@
 
 		<script>
 			var env = "<%= names %>";
-            document.getElementById("bleh").innerHTML = env;
             var json = decodeHtml(env);
             json = JSON.parse(json);
-            console.log(json);
-            document.getElementById("bleh").innerHTML = json.length;
             var table = document.getElementById("display");
-            var elt = document.getElementById("env");
             json.forEach(row =>  {
                 var tr = document.createElement("tr");
                 var tdName = document.createElement("td");
