@@ -13,15 +13,45 @@
 					<div id="env" class="white pv1 ph2 br1 bg-light-blue"></div>
 				</div>
 			</div>
-            <table class="dt">
-                <tr>
-                    <th>col1</th>
-                    <th>col2</th>
-                </tr>
-                <tr>
-                    <td>Va1</td>
-                    <td>Va2</td>
-                </tr>
+            <table class="f6 w-100 mw8 center" cellspacing="0">
+                <thead>
+                    <tr>
+                      <th class="fw6 bb b--black-20 tl pb3 pr3 bg-white">Name</th>
+                      <th class="fw6 bb b--black-20 tl pb3 pr3 bg-white">Email</th>
+                    </tr>
+                  </thead>
+                  <tbody id="display" class="lh-copy">
+                    <tr>
+                      <td class="pv3 pr3 bb b--black-20">Hassan Johnson</td>
+                      <td class="pv3 pr3 bb b--black-20">@hassan</td>
+                      <td class="pv3 pr3 bb b--black-20">hassan@companywithalongdomain.co</td>
+                      <td class="pv3 pr3 bb b--black-20">14419232532474</td>
+                    </tr>
+                    <tr>
+                      <td class="pv3 pr3 bb b--black-20">Taral Hicks</td>
+                      <td class="pv3 pr3 bb b--black-20">@hicks</td>
+                      <td class="pv3 pr3 bb b--black-20">taral@companywithalongdomain.co</td>
+                      <td class="pv3 pr3 bb b--black-20">72326219423551</td>
+                    </tr>
+                    <tr>
+                      <td class="pv3 pr3 bb b--black-20">Tyrin Turner</td>
+                      <td class="pv3 pr3 bb b--black-20">@tt</td>
+                      <td class="pv3 pr3 bb b--black-20">ty@companywithalongdomain.co</td>
+                      <td class="pv3 pr3 bb b--black-20">92325170324444</td>
+                    </tr>
+                    <tr>
+                      <td class="pv3 pr3 bb b--black-20">Oliver Grant</td>
+                      <td class="pv3 pr3 bb b--black-20">@oli</td>
+                      <td class="pv3 pr3 bb b--black-20">oliverg@companywithalongdomain.co</td>
+                      <td class="pv3 pr3 bb b--black-20">71165170352909</td>
+                    </tr>
+                    <tr>
+                      <td class="pv3 pr3 bb b--black-20">Dean Blanc</td>
+                      <td class="pv3 pr3 bb b--black-20">@deanblanc</td>
+                      <td class="pv3 pr3 bb b--black-20">dean@companywithalongdomain.co</td>
+                      <td class="pv3 pr3 bb b--black-20">71865178111909</td>
+                    </tr>
+                  </tbody>
             </table>
 		</div>
 
@@ -33,16 +63,25 @@
             json = JSON.parse(json);
             console.log(json);
             document.getElementById("bleh").innerHTML = json.length;
+            var table = document.getElementById("display");
             var elt = document.getElementById("env");
             json.forEach(row =>  {
-                document.getElementById("bleh").innerHTML = row;
+                /*document.getElementById("bleh").innerHTML = row;
                 var div = document.createElement('span');
                 div.innerHTML = "Name: "+row.name;
                 div.innerHTML += "<br/>Email: ";
                 div.innerHTML += (row.email !=null)?row.email:"<span style=\"color:red;\">REQUIRED</span>";
                 elt.appendChild(div);
                 elt.appendChild(document.createElement("br"));
-                elt.appendChild(document.createElement("br"));
+                elt.appendChild(document.createElement("br"));*/
+                var tr = document.createElement("tr");
+                row.forEach(field => {
+                    var td = document.createElement("td");
+                    td.classList = "pv3 pr3 bb b--black-20";
+                    td.innerHTML = field;
+                    tr.appendChild(field);
+                })
+                table.appendChild(tr);
             })
 
             function decodeHtml(html) {
