@@ -75,12 +75,14 @@
                 elt.appendChild(document.createElement("br"));
                 elt.appendChild(document.createElement("br"));*/
                 var tr = document.createElement("tr");
-                row.forEach(field => {
-                    var td = document.createElement("td");
-                    td.classList = "pv3 pr3 bb b--black-20";
-                    td.innerHTML = field;
-                    tr.appendChild(field);
-                })
+                var tdName = document.createElement("td");
+                tdName.classList = "pv3 pr3 bb b--black-20";
+                tdName.innerHTML = row.name;
+                tr.appendChild(tdName);
+                var tdEmail = document.createElement("td");
+                tdEmail.classList = "pv3 pr3 bb b--black-20";
+                tdEmail.innerHTML = row.email;
+                tr.appendChild(tdEmail);
                 table.appendChild(tr);
             })
 
