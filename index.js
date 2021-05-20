@@ -19,15 +19,30 @@ app.set('view engine', 'ejs');
 app.set('views', __dirname + '/public');
 app.get('/cool', (req, res) => res.send(cool()))
 app.get('/times', (req, res) => res.send(showTimes()))
-.get('/db', async (req, res) => {
+.get('/contact', async (req, res) => {
   try {
     const client = await pool.connect();
-    const result = await client.query('SELECT Name, Email FROM salesforce.contact');
+    const result = await client.query('SELECT Name, Email FROM salesforce.contact ORDER BY Name');
     const results = { 'results': (result) ? result.rows : null};
     var test = result.rows;
     var stringToParse = JSON.stringify(test);
     
-    res.render('view.html', { names: stringToParse} );
+    res.render('viewContact.html', { names: stringToParse} );
+    client.release();
+  } catch (err) {
+    console.error(err);
+    res.send("Error " + err);
+  }
+})
+.get('/contract', async (req, res) => {
+  try {
+    const client = await pool.connect();
+    const result = await client.query('SELECT ContractNumber, Description, StartDate, ContractTerm FROM salesforce.contract');
+    const results = { 'results': (result) ? result.rows : null};
+    var test = result.rows;
+    var stringToParse = JSON.stringify(test);
+    
+    res.render('viewContract.html', { names: stringToParse} );
     client.release();
   } catch (err) {
     console.error(err);
