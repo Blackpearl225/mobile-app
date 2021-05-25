@@ -2,10 +2,10 @@
 
 A demonstration of the connection between Heroku Connect, PostGreSQL and Salesforce.
 
-# Functionalities
+### Functionalities
 
 Displays views of the accounts, products, contacts and contracts in the org in a table.
 
-# Development
+### Development
 
 Node.js, Javascript and HTML
