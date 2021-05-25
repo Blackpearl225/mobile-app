@@ -71,7 +71,7 @@ app.get('/times', (req, res) => res.send(showTimes()))
 .get('/account', async (req, res) => {
   try {
     const client = await pool.connect();
-    const result = await client.query('SELECT Name, Description, Industry, Phone FROM salesforce.account');
+    const result = await client.query('SELECT Name, Industry, Phone FROM salesforce.account');
     const results = { 'results': (result) ? result.rows : null};
     var test = result.rows;
     console.log(test)

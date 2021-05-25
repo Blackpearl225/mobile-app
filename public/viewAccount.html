@@ -10,7 +10,6 @@
                 <thead>
                     <tr>
                       <th class="fw6 bb b--black-20 tl pb3 pr3 bg-white">Name</th>
-                      <th class="fw6 bb b--black-20 tl pb3 pr3 bg-white">Description</th>
                       <th class="fw6 bb b--black-20 tl pb3 pr3 bg-white">Industry</th>
                       <th class="fw6 bb b--black-20 tl pb3 pr3 bg-white">Phone</th>
                     </tr>
@@ -31,10 +30,6 @@
                 tdName.classList = "pv3 pr3 bb b--black-20";
                 tdName.innerHTML = row.name;
                 tr.appendChild(tdName);
-                var tdDesc = document.createElement("td");
-                tdDesc.classList = "pv3 pr3 bb b--black-20";
-                tdDesc.innerHTML = row.description;
-                tr.appendChild(tdDesc);
                 var tdInd = document.createElement("td");
                 tdInd.classList = "pv3 pr3 bb b--black-20";
                 tdInd.innerHTML = row.industry;
