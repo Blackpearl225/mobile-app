@@ -37,7 +37,7 @@ app.get('/times', (req, res) => res.send(showTimes()))
 .get('/contract', async (req, res) => {
   try {
     const client = await pool.connect();
-    const result = await client.query('SELECT ContractNumber, Description, StartDate, ContractTerm FROM salesforce.contract');
+    const result = await client.query('SELECT ContractNumber, StartDate, ContractTerm FROM salesforce.contract');
     const results = { 'results': (result) ? result.rows : null};
     var test = result.rows;
     console.log(test)
@@ -54,7 +54,7 @@ app.get('/times', (req, res) => res.send(showTimes()))
 .get('/product', async (req, res) => {
   try {
     const client = await pool.connect();
-    const result = await client.query('SELECT Name, Description, ProductCode FROM salesforce.product2');
+    const result = await client.query('SELECT Name, ProductCode FROM salesforce.product2');
     const results = { 'results': (result) ? result.rows : null};
     var test = result.rows;
     console.log(test)
